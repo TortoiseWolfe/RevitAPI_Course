@@ -21,18 +21,10 @@ namespace RevitAPI_Course
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            Selection sel = uiapp.ActiveUIDocument.Selection;
-            Reference pickref = null;
-            Transaction trans = new Transaction(doc);
-            Element Selected = null;
-            trans.Start("Selection");
-
-            pickref = sel.PickObject(ObjectType.Element, "Select");
-            Selected = doc.GetElement(pickref);
-
-            trans.Commit();
+            Element SelectedElement = Extraction.SingleElementSelection(uiapp);
+            
             // Analysis
-
+            MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
             // Creation
             //Transaction trans = new Transaction(doc);
             //trans.Start("Starting Process");
