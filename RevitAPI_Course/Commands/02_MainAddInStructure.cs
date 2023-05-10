@@ -21,10 +21,11 @@ namespace RevitAPI_Course
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            Element SelectedElement = Extraction.SingleElementSelection(uiapp);
+            List<Element> SelectedElements = Extraction.MultipleElementSelection(uiapp);
             
             // Analysis
-            MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
+                //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
+            Analysis.ShowElementsData(SelectedElements);
             // Creation
             //Transaction trans = new Transaction(doc);
             //trans.Start("Starting Process");

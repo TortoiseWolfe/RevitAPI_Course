@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace RevitAPI_Course
 {
     internal class Analysis
     {
-        public static string ShowMessage(List<string> allNames)
+        public static void ShowElementsData(List<Element> allElements)
         {
-            foreach (string name in allNames)
+            foreach (Element s in allElements)
             {
-                MessageBox.Show(name);
+                MessageBox.Show(s.Category.Name + "|:|" + s.Id.ToString());
 
             }
-            return "Completed";
+            //  return "Completed";
         }
     }
 }

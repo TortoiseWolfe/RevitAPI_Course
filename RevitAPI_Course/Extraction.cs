@@ -21,11 +21,45 @@ namespace RevitAPI_Course
         Transaction trans = new Transaction(doc);
         Element Selected = null;
         trans.Start("Selection");
-        pickref = sel.PickObject(ObjectType.Element, "Select");
-        Selected = doc.GetElement(pickref);
+            
+        try {
+            pickref = sel.PickObject(ObjectType.Element, "Select");
+            Selected = doc.GetElement(pickref);
+            }
+        catch
+            {
+            }
 
         trans.Commit();
         return Selected;
+        }
+
+        public static List<Element> MultipleElementSelection(UIApplication uiapp)
+        {
+            List<Element> allSelection = new List<Element>();
+            Document doc = uiapp.ActiveUIDocument.Document;
+            Selection sel = uiapp.ActiveUIDocument.Selection;
+            Reference pickref = null;
+            Boolean flag = true;
+            Transaction trans = new Transaction(doc);
+            //  Element Selected = null;
+            trans.Start("Selection");
+            while (flag)
+            {
+                try
+                {
+                    pickref = sel.PickObject(ObjectType.Element, "Select");
+                    Element Selected = doc.GetElement(pickref);
+                    allSelection.Add(Selected);
+                }
+                catch
+                {
+                    flag = false;
+                }
+            }   
+
+            trans.Commit();
+            return allSelection;
         }
     }
 }
