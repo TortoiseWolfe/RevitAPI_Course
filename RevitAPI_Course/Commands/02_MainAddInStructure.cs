@@ -21,7 +21,7 @@ namespace RevitAPI_Course
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<Element> SelectedElements = Extraction.MultipleElementSelection(uiapp);
+            List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
             
             // Analysis
                 //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());

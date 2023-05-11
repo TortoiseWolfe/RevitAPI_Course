@@ -61,5 +61,49 @@ namespace RevitAPI_Course
             trans.Commit();
             return allSelection;
         }
+        public static List<Element> MultipleStructuralColumnElementSelection(UIApplication uiapp)
+        {
+            List<Element> allSelection = new List<Element>();
+            Document doc = uiapp.ActiveUIDocument.Document;
+            Selection sel = uiapp.ActiveUIDocument.Selection;
+            ISelectionFilter filter = new StructuralColumnSelectionFilter();
+            Reference pickref = null;
+            Boolean flag = true;
+            Transaction trans = new Transaction(doc);
+            //  Element Selected = null;
+            trans.Start("Selection");
+            while (flag)
+            {
+                try
+                {
+                    pickref = sel.PickObject(ObjectType.Element, filter, "Select");
+                    Element Selected = doc.GetElement(pickref);
+                    allSelection.Add(Selected);
+                }
+                catch
+                {
+                    flag = false;
+                }
+            }
+
+            trans.Commit();
+            return allSelection;
+        }
+    }
+
+    public class StructuralColumnSelectionFilter : ISelectionFilter
+    {
+        public bool AllowElement(Element elem)
+        {
+            if (elem.Category.Name == "Structural Columns")
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool AllowReference(Reference reference, XYZ position)
+        {
+            return false;
+        }
     }
 }
