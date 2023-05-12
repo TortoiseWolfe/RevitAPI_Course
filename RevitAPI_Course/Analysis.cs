@@ -19,5 +19,16 @@ namespace RevitAPI_Course
             }
             //  return "Completed";
         }
+
+
+        public static void ShowFamilyInstanceData(List<FamilyInstance> allElements)
+        {
+            foreach (FamilyInstance s in allElements)
+            {
+                MessageBox.Show(s.Category.Name + "|:|" + s.Id.ToString());
+
+            }
+            //  return "Completed";
+        }
     }
 }

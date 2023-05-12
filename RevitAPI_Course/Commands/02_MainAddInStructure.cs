@@ -21,11 +21,19 @@ namespace RevitAPI_Course
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
-            
+            //List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
+            List<FamilyInstance> allColumns = Extraction.GetAllFamilyInstancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+
+
+            // Element - FamilyInstance
+            // Elementtype - FamilyType - FamilySymbol
+
+
+
             // Analysis
-                //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
-            Analysis.ShowElementsData(SelectedElements);
+            //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
+            Analysis.ShowFamilyInstanceData(allColumns);
+            // Analysis.ShowElementsData(SelectedElements);
             // Creation
             //Transaction trans = new Transaction(doc);
             //trans.Start("Starting Process");

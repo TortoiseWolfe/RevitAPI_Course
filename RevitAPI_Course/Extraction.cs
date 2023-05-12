@@ -89,21 +89,37 @@ namespace RevitAPI_Course
             trans.Commit();
             return allSelection;
         }
-    }
-
-    public class StructuralColumnSelectionFilter : ISelectionFilter
-    {
-        public bool AllowElement(Element elem)
+        public class StructuralColumnSelectionFilter : ISelectionFilter
         {
-            if (elem.Category.Name == "Structural Columns")
+            public bool AllowElement(Element elem)
             {
-                return true;
+                if (elem.Category.Name == "Structural Columns")
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            public bool AllowReference(Reference reference, XYZ position)
+            {
+                return false;
+            }
         }
-        public bool AllowReference(Reference reference, XYZ position)
+        
+        public static List<FamilyInstance> GetAllFamilyInstancesOfCategory(Document doc, BuiltInCategory category)
         {
-            return false;
+            List<FamilyInstance> allFamilies = new List<FamilyInstance>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsNotElementType();
+            FilteredElementIterator famIT = collector.GetElementIterator();
+            famIT.Reset();
+            while (famIT.MoveNext())
+            {
+                Element efam = famIT.Current as Element;
+                FamilyInstance famin = famIT.Current as FamilyInstance;
+                allFamilies.Add(famin);
+
+            }
+            return allFamilies;
         }
+
     }
 }
