@@ -20,7 +20,6 @@ namespace RevitAPI_Course
             //  return "Completed";
         }
 
-
         public static void ShowFamilyInstanceData(List<FamilyInstance> allElements)
         {
             foreach (FamilyInstance s in allElements)
@@ -38,7 +37,15 @@ namespace RevitAPI_Course
                 MessageBox.Show(s.FamilyName + "|:|" + s.Name);
 
             }
-            //  return "Completed";
+        }
+
+        public static void ShowElementTypesData(List<ElementType> allElements)
+        {
+            foreach (ElementType s in allElements)
+            {
+                MessageBox.Show(s.FamilyName + "|:|" + s.Name);
+
+            }
         }
     }
 }

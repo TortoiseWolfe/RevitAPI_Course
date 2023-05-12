@@ -23,7 +23,9 @@ namespace RevitAPI_Course
             Document doc = uiapp.ActiveUIDocument.Document;
             //List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
             List<FamilyInstance> allColumns = Extraction.GetAllFamilyInstancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-            List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+            // List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+            List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
+            List<ElementType> allColumnsElementTypes = Extraction.GetAllElementTypesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
 
             // Element - FamilyInstance
             // Elementtype - FamilyType - FamilySymbol
@@ -32,8 +34,9 @@ namespace RevitAPI_Course
 
             // Analysis
             //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
-            Analysis.ShowFamilyInstanceData(allColumns);
+            //Analysis.ShowFamilyInstanceData(allColumns);
             Analysis.ShowFamilySymbolsData(allColumnsFamilySymbols);
+            //Analysis.ShowElementTypesData(allColumnsElementTypes);
             // Analysis.ShowElementsData(SelectedElements);
             // Creation
             //Transaction trans = new Transaction(doc);

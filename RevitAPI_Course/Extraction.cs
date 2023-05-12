@@ -33,7 +33,6 @@ namespace RevitAPI_Course
         trans.Commit();
         return Selected;
         }
-
         public static List<Element> MultipleElementSelection(UIApplication uiapp)
         {
             List<Element> allSelection = new List<Element>();
@@ -104,7 +103,6 @@ namespace RevitAPI_Course
                 return false;
             }
         }
-        
         public static List<FamilyInstance> GetAllFamilyInstancesOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilyInstance> allFamilies = new List<FamilyInstance>();
@@ -120,7 +118,6 @@ namespace RevitAPI_Course
             }
             return allFamilies;
         }
-
         public static List<FamilySymbol> GetAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
         {
             List<FamilySymbol> allFamilySymbols = new List<FamilySymbol>();
@@ -135,6 +132,39 @@ namespace RevitAPI_Course
 
             }
             return allFamilySymbols;
+        }
+        public static List<FamilySymbol> GetAllFamilySymbolsOfCategoryFamilyName(Document doc, BuiltInCategory category, string familyName)
+        {
+            List<FamilySymbol> allFamilySymbols = new List<FamilySymbol>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
+            FilteredElementIdIterator famIT = collector.GetElementIdIterator();
+            famIT.Reset();
+            while (famIT.MoveNext())
+            {
+                ElementId efam = famIT.Current;
+                FamilySymbol famsymb = doc.GetElement(efam) as FamilySymbol;
+                if (famsymb.FamilyName == familyName)
+                {
+                    allFamilySymbols.Add(famsymb);
+                }
+
+            }
+            return allFamilySymbols;
+        }
+        public static List<ElementType> GetAllElementTypesOfCategory(Document doc, BuiltInCategory category)
+        {
+            List<ElementType> allElementTypes = new List<ElementType>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).WhereElementIsElementType();
+            FilteredElementIdIterator famIT = collector.GetElementIdIterator();
+            famIT.Reset();
+            while (famIT.MoveNext())
+            {
+                ElementId efam = famIT.Current;
+                FamilySymbol famsymb = doc.GetElement(efam) as FamilySymbol;
+                allElementTypes.Add(famsymb);
+
+            }
+            return allElementTypes;
         }
 
     }
