@@ -121,5 +121,21 @@ namespace RevitAPI_Course
             return allFamilies;
         }
 
+        public static List<FamilySymbol> GetAllFamilySymbolsOfCategory(Document doc, BuiltInCategory category)
+        {
+            List<FamilySymbol> allFamilySymbols = new List<FamilySymbol>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(category).OfClass(typeof(FamilySymbol));
+            FilteredElementIdIterator famIT = collector.GetElementIdIterator();
+            famIT.Reset();
+            while (famIT.MoveNext())
+            {
+                ElementId efam = famIT.Current;
+                FamilySymbol famsymb = doc.GetElement(efam) as FamilySymbol;
+                allFamilySymbols.Add(famsymb);
+
+            }
+            return allFamilySymbols;
+        }
+
     }
 }

@@ -30,5 +30,15 @@ namespace RevitAPI_Course
             }
             //  return "Completed";
         }
+
+        public static void ShowFamilySymbolsData(List<FamilySymbol> allElements)
+        {
+            foreach (FamilySymbol s in allElements)
+            {
+                MessageBox.Show(s.FamilyName + "|:|" + s.Name);
+
+            }
+            //  return "Completed";
+        }
     }
 }
