@@ -167,5 +167,21 @@ namespace RevitAPI_Course
             return allElementTypes;
         }
 
+        public static List<Level> GetAllLevelsFromModel(Document doc)
+        {
+            List<Level> allLevels = new List<Level>();
+            FilteredElementCollector collector = new FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType();
+            FilteredElementIdIterator famIT = collector.GetElementIdIterator();
+            famIT.Reset();
+            while (famIT.MoveNext())
+            {
+                ElementId efam = famIT.Current;
+                Level famsymb = doc.GetElement(efam) as Level;
+                allLevels.Add(famsymb);
+
+            }
+            return allLevels;
+        }
+
     }
 }

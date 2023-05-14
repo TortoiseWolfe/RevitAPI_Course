@@ -8,7 +8,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.UI.Selection;
-
+using Autodesk.Revit.DB.Structure;
 namespace RevitAPI_Course
 {
     [Transaction(TransactionMode.Manual)]
@@ -22,11 +22,11 @@ namespace RevitAPI_Course
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
             //List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
-            List<FamilyInstance> allColumns = Extraction.GetAllFamilyInstancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+            //List<FamilyInstance> allColumns = Extraction.GetAllFamilyInstancesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
             // List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
             List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
-            List<ElementType> allColumnsElementTypes = Extraction.GetAllElementTypesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-
+            //List<ElementType> allColumnsElementTypes = Extraction.GetAllElementTypesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
+            List<Level> allLevels = Extraction.GetAllLevelsFromModel(doc);
             // Element - FamilyInstance
             // Elementtype - FamilyType - FamilySymbol
 
@@ -35,16 +35,21 @@ namespace RevitAPI_Course
             // Analysis
             //MessageBox.Show(SelectedElement.Category.Name + "|:|" + SelectedElement.Id.ToString());
             //Analysis.ShowFamilyInstanceData(allColumns);
-            Analysis.ShowFamilySymbolsData(allColumnsFamilySymbols);
+            //Analysis.ShowFamilySymbolsData(allColumnsFamilySymbols);
             //Analysis.ShowElementTypesData(allColumnsElementTypes);
             // Analysis.ShowElementsData(SelectedElements);
             // Creation
-            //Transaction trans = new Transaction(doc);
-            //trans.Start("Starting Process");
-
+            Transaction trans = new Transaction(doc);
+            trans.Start("Starting Process");
+            if (!allColumnsFamilySymbols[0].IsActive)
+            {
+                allColumnsFamilySymbols[0].Activate();
+                doc.Regenerate();
+            }
             // Creation Process
+            FamilyInstance fam = doc.Create.NewFamilyInstance(new XYZ(0, 0, 0), allColumnsFamilySymbols[0], allLevels[0], StructuralType.Column);
 
-            //trans.Commit();
+            trans.Commit();
             return Result.Succeeded;
         }       
     }
