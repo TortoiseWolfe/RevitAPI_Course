@@ -69,7 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis.cs" />
-    <Compile Include="Commands\02_MainAddInStructure.cs" />
+    <Compile Include="Commands\06_Family_Instance_Creation.cs" />
+    <Compile Include="Commands\05_ElemetTypes_Extraction.cs" />
+    <Compile Include="Commands\02_Selection_of_Objects.cs" />
+    <Compile Include="Commands\03_Instance_Extraction.cs" />
+    <Compile Include="Commands\04_Symbol_Extraction.cs" />
+    <Compile Include="Commands\07_MainAddInStructure.cs" />
     <Compile Include="Commands\01_MessageTest.cs" />
     <Compile Include="Extraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

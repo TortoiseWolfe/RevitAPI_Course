@@ -14,7 +14,7 @@ namespace RevitAPI_Course
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class _02_MainAddInStructure : IExternalCommand
+    public class _07_MainAddInStructure : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
