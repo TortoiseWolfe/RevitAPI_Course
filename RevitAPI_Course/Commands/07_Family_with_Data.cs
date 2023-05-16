@@ -48,9 +48,9 @@ namespace RevitAPI_Course
             // Creation Process
             foreach (XYZ p in aP)
             {
-            FamilyInstance fam = doc.Create.NewFamilyInstance(p, FamS, lvl, StructuralType.Column);
-            fam.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Checked Value");
-            fam.LookupParameter("Reference").Set(val);
+                FamilyInstance fam = doc.Create.NewFamilyInstance(p, FamS, lvl, StructuralType.Column);
+                fam.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Checked Value");
+                fam.LookupParameter("Reference").Set(val);
             }
 
             trans.Commit();
