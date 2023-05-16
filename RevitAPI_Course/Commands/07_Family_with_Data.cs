@@ -29,6 +29,7 @@ namespace RevitAPI_Course
 
             Parameter PAR = selected.get_Parameter(BuiltInParameter.INSTANCE_LENGTH_PARAM);
             double length = PAR.AsDouble();
+            string val = selected.LookupParameter("Reference").AsString();
 
             Location locationPoint = selected.Location;
             LocationPoint LP = locationPoint as LocationPoint;
@@ -48,6 +49,8 @@ namespace RevitAPI_Course
             foreach (XYZ p in aP)
             {
             FamilyInstance fam = doc.Create.NewFamilyInstance(p, FamS, lvl, StructuralType.Column);
+            fam.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).Set("Checked Value");
+            fam.LookupParameter("Reference").Set(val);
             }
 
             trans.Commit();
