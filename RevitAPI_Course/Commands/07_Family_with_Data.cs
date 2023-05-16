@@ -27,6 +27,7 @@ namespace RevitAPI_Course
             FamilySymbol FamS = doc.GetElement(familyTypeId) as FamilySymbol;
             Level lvl = doc.GetElement(selected.LevelId) as Level;
             List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
+            
             //foreach(FamilySymbol FS in allColumnsFamilySymbols)
             //           {
             //    if (FS.FamilyName = FamS.FamilyName)
@@ -37,7 +38,12 @@ namespace RevitAPI_Course
             //}
 
             List<Level> allLevels = Extraction.GetAllLevelsFromModel(doc);
-            
+            Location locationPoint = selected.Location;
+            LocationPoint LP = locationPoint as LocationPoint;
+            XYZ centerPoint = LP.Point;
+
+
+
             // Creation
             Transaction trans = new Transaction(doc);
             trans.Start("Starting Process");
@@ -47,7 +53,7 @@ namespace RevitAPI_Course
                 doc.Regenerate();
             }
             // Creation Process
-            FamilyInstance fam = doc.Create.NewFamilyInstance(new XYZ(0, 0, 0), FamS, lvl, StructuralType.Column);
+            FamilyInstance fam = doc.Create.NewFamilyInstance(centerPoint.Add(new XYZ(3,0,0)), FamS, lvl, StructuralType.Column);
 
             trans.Commit();
             return Result.Succeeded;
