@@ -29,7 +29,15 @@ namespace RevitAPI_Course
             List<Level> allLevels = Extraction.GetAllLevelsFromModel(doc);
             // Element - FamilyInstance
             // Elementtype - FamilyType - FamilySymbol
-
+            
+            //foreach(FamilySymbol FS in allColumnsFamilySymbols)
+            //           {
+            //    if (FS.FamilyName = FamS.FamilyName)
+            //    {
+            //        FamS = FS;
+            //        break;
+            //    }
+            //}
 
 
             // Analysis
