@@ -30,7 +30,7 @@ namespace RevitAPI_Course
             allNames.Add(intNumber.ToString());
             allNames.Add(multipleTypes);
 
-            // MessageBox.Show(Analysis.ShowMessage(allNames));
+            Analysis.ShowMessage(allNames);
 
             //throw new NotImplementedException();
             return Result.Succeeded;

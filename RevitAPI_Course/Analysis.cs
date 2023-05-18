@@ -10,14 +10,21 @@ namespace RevitAPI_Course
 {
     internal class Analysis
     {
+        public static void ShowMessage(List<string> allStrings)
+        {
+            foreach (string s in allStrings)
+            {
+                MessageBox.Show(s);
+
+            }
+            //  return "Completed";
+        }
         public static void ShowElementsData(List<Element> allElements)
         {
             foreach (Element s in allElements)
             {
                 MessageBox.Show(s.Category.Name + "|:|" + s.Id.ToString());
-
             }
-            //  return "Completed";
         }
 
         public static void ShowFamilyInstanceData(List<FamilyInstance> allElements)
@@ -25,9 +32,7 @@ namespace RevitAPI_Course
             foreach (FamilyInstance s in allElements)
             {
                 MessageBox.Show(s.Category.Name + "|:|" + s.Id.ToString());
-
             }
-            //  return "Completed";
         }
 
         public static void ShowFamilySymbolsData(List<FamilySymbol> allElements)
@@ -35,7 +40,6 @@ namespace RevitAPI_Course
             foreach (FamilySymbol s in allElements)
             {
                 MessageBox.Show(s.FamilyName + "|:|" + s.Name);
-
             }
         }
 

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+	<AddIn Type="Applicatiion">
+		<Name>TestBar</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>b99f88f4-c448-400b-aab7-8cd0690784be</AddInId>
+		<FullClassName>RevitAPI_Course.App</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Trinam your Company Information</VendorDescription>
+		<Text>TestBar</Text>
+		<Description>TestBarToolBar</Description>
+	</AddIn>
+</RevitAddIns>
