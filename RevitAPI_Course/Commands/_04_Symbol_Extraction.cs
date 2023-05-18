@@ -14,7 +14,7 @@ namespace RevitAPI_Course
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class _06_FamilyInstanceCreation : IExternalCommand
+    public class _04_Symbol_Extraction : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -22,21 +22,11 @@ namespace RevitAPI_Course
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
             List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
-            List<Level> allLevels = Extraction.GetAllLevelsFromModel(doc);
 
             // Analysis
+            Analysis.ShowFamilySymbolsData(allColumnsFamilySymbols);
+            
             // Creation
-            Transaction trans = new Transaction(doc);
-            trans.Start("Starting Process");
-            if (!allColumnsFamilySymbols[0].IsActive)
-            {
-                allColumnsFamilySymbols[0].Activate();
-                doc.Regenerate();
-            }
-            // Creation Process
-            FamilyInstance fam = doc.Create.NewFamilyInstance(new XYZ(0, 0, 0), allColumnsFamilySymbols[0], allLevels[0], StructuralType.Column);
-
-            trans.Commit();
             return Result.Succeeded;
         }       
     }

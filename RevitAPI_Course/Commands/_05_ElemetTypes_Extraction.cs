@@ -14,17 +14,17 @@ namespace RevitAPI_Course
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class _04_SymbolExtraction : IExternalCommand
+    public class _05_ElemetTypes_Extraction : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<FamilySymbol> allColumnsFamilySymbols = Extraction.GetAllFamilySymbolsOfCategoryFamilyName(doc, BuiltInCategory.OST_StructuralColumns, "Concrete-Rectangular-Column");
+            List<ElementType> allColumnsElementTypes = Extraction.GetAllElementTypesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
 
             // Analysis
-            Analysis.ShowFamilySymbolsData(allColumnsFamilySymbols);
+            Analysis.ShowElementTypesData(allColumnsElementTypes);
             
             // Creation
             return Result.Succeeded;

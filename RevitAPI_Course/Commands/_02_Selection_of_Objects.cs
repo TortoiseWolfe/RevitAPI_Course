@@ -14,17 +14,17 @@ namespace RevitAPI_Course
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class _05_ElementTypesExtraction : IExternalCommand
+    public class _02_Selection_of_Objects : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             // Selection or Extraction
             UIApplication uiapp = commandData.Application;
             Document doc = uiapp.ActiveUIDocument.Document;
-            List<ElementType> allColumnsElementTypes = Extraction.GetAllElementTypesOfCategory(doc, BuiltInCategory.OST_StructuralColumns);
-
+            List<Element> SelectedElements = Extraction.MultipleStructuralColumnElementSelection(uiapp);
+            
             // Analysis
-            Analysis.ShowElementTypesData(allColumnsElementTypes);
+            Analysis.ShowElementsData(SelectedElements);
             
             // Creation
             return Result.Succeeded;
