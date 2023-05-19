@@ -41,4 +41,48 @@
 		<Text>Family with Data</Text>
 		<Description>Creates a Copy of a Family reading the Lenght</Description>
 	</AddIn>
+	<AddIn Type="Command">
+		<Name>_08_MacroRecorder</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>84adfca8-3122-4915-aa6e-d1146091fc16</AddInId>
+		<FullClassName>RevitAPI_Course._08_MacroRecorder</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Your Company Information</VendorDescription>
+		<Text>_08 Macro Recorder</Text>
+		<Description>Description for _08 Macro Recorder</Description>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>_09_ScopeBox</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>40f7aac7-39ba-4ca8-937b-4858543545ae</AddInId>
+		<FullClassName>RevitAPI_Course._09_ScopeBox</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Your Company Information</VendorDescription>
+		<Text>_09 Scope Box</Text>
+		<Description>Description for _09 Scope Box</Description>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>_10_CurtainWallSelection</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>9b398a05-d9e5-481a-aa86-23ef47e899d2</AddInId>
+		<FullClassName>RevitAPI_Course._10_CurtainWallSelection</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Your Company Information</VendorDescription>
+		<Text>_10 Curtain Wall Selection</Text>
+		<Description>Description for _10 Curtain Wall Selection</Description>
+	</AddIn>
+	<AddIn Type="Command">
+		<Name>_11_CurtainWallDimensioning</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>a5a33f0a-0031-468b-a84c-f24d8ed44d4c</AddInId>
+		<FullClassName>RevitAPI_Course._11_CurtainWallDimensioning</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Your Company Information</VendorDescription>
+		<Text>_11 Curtain Wall Dimensioning</Text>
+		<Description>Description for _11 Curtain Wall Dimensioning</Description>
+	</AddIn>
 </RevitAddIns>

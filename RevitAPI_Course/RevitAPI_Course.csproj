@@ -77,6 +77,7 @@
     <Compile Include="Commands\_02_Selection_of_Objects.cs" />
     <Compile Include="Commands\_03_Instance_Extraction.cs" />
     <Compile Include="Commands\_04_Symbol_Extraction.cs" />
+    <Compile Include="Commands\_08_MacroRecorder.cs" />
     <Compile Include="Commands\_07_Family_with_Data.cs" />
     <Compile Include="Commands\_00_MainAddInStructure.cs" />
     <Compile Include="Commands\_01_MessageTest.cs" />

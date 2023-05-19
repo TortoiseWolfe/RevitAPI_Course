@@ -32,7 +32,10 @@ namespace RevitAPI_Course
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_05_ElementTypes_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_06_Family_Instance_Creation", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_07_Family_with_Data", "Trinam_Design_32.png", "Trinam_Design_16.png");
-    //      CreatePushButton(thisAssemblyPath, ribbonPanel, "cmdCommand_08", "Show a Message", "_01_MessageTest", "Trinam_Design_32.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_08_MacroRecorder", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_09_ScopeBox", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_10_CurtainWallSelection", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_11_CurtainWallDimensioning", "Trinam_Design_32.png", "Trinam_Design_16.png");
         }
 
         public void CreatePushButton(string AssemblyPath, RibbonPanel ribbonPanel, string toolTipText, string commandName, string largeImageFileName, string smallImageFileName)
