@@ -7,6 +7,7 @@ using System.Reflection;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
+using System.Windows.Media.Imaging;
 
 namespace RevitAPI_Course
 {
@@ -24,17 +25,17 @@ namespace RevitAPI_Course
             // Create a push button
             string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
 
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_01_MessageTest");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_02_Selection_of_Objects");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_03_Instance_Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_04_Symbol_Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_05_ElementTypes_Extraction");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_06_Family_Instance_Creation");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_07_Family_with_Data");
-            //CreatePushButton(thisAssemblyPath, ribbonPanel, "cmdCommand_08", "Show a Message", "_01_MessageTest");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_01_MessageTest", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_02_Selection_of_Objects", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_03_Instance_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_04_Symbol_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_05_ElementTypes_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_06_Family_Instance_Creation", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_07_Family_with_Data", "Trinam_Design_32.png", "Trinam_Design_16.png");
+    //      CreatePushButton(thisAssemblyPath, ribbonPanel, "cmdCommand_08", "Show a Message", "_01_MessageTest", "Trinam_Design_32.png");
         }
 
-        public void CreatePushButton(string AssemblyPath, RibbonPanel ribbonPanel, string toolTipText, string commandName)
+        public void CreatePushButton(string AssemblyPath, RibbonPanel ribbonPanel, string toolTipText, string commandName, string largeImageFileName, string smallImageFileName)
         {
             // Create a push button
             PushButtonData A1 = new PushButtonData(
@@ -46,10 +47,14 @@ namespace RevitAPI_Course
             PushButton pb1 = ribbonPanel.AddItem(A1) as PushButton;
             pb1.ToolTip = toolTipText;
             //pb1.LongDescription = "This is a long description for the command";
-            
-            //Uri uriImage = new Uri(@"C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg");
-            //BitmapImage largeImage = new BitmapImage(uriImage);
-            //pushButton.LargeImage = largeImage;
+
+            Uri uriImageLarge = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\" + largeImageFileName);
+            BitmapImage largeImage = new BitmapImage(uriImageLarge);
+            pb1.LargeImage = largeImage;
+
+            Uri uriImageSmall = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\" + smallImageFileName);
+            BitmapImage smallImage = new BitmapImage(uriImageSmall);
+            pb1.Image = smallImage;
         }
 
         public Result OnStartup(UIControlledApplication application)
