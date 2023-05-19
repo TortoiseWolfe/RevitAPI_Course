@@ -14,7 +14,7 @@ namespace RevitAPI_Course
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
 
-    public class _05_ElemetTypes_Extraction : IExternalCommand
+    public class _05_ElementTypes_Extraction : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

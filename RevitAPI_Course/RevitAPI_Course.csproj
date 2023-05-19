@@ -49,6 +49,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
       <Private>False</Private>
@@ -66,6 +67,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analysis.cs" />
@@ -78,12 +80,18 @@
     <Compile Include="Commands\_07_Family_with_Data.cs" />
     <Compile Include="Commands\_00_MainAddInStructure.cs" />
     <Compile Include="Commands\_01_MessageTest.cs" />
+    <Compile Include="CsAddPanel.cs" />
     <Compile Include="Extraction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HelloWorldRibbon %282%29.addin" />
+    <None Include="HelloWorldRibbon.addin" />
     <None Include="RevitAPI_Course_Ribbon.addin" />
     <None Include="_07_Family_with_Data.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Trinam_96.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

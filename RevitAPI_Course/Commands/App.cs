@@ -24,18 +24,32 @@ namespace RevitAPI_Course
             // Create a push button
             string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
 
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_01_MessageTest");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_02_Selection_of_Objects");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_03_Instance_Extraction");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_04_Symbol_Extraction");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_05_ElementTypes_Extraction");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_06_Family_Instance_Creation");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_07_Family_with_Data");
+            //CreatePushButton(thisAssemblyPath, ribbonPanel, "cmdCommand_08", "Show a Message", "_01_MessageTest");
+        }
+
+        public void CreatePushButton(string AssemblyPath, RibbonPanel ribbonPanel, string toolTipText, string commandName)
+        {
+            // Create a push button
             PushButtonData A1 = new PushButtonData(
-                "cmdMessageText",
-                "Show a Message",
-                thisAssemblyPath,
-                "RevitAPI_Course._01_MessageTest");
+                               commandName,
+                               commandName,
+                               AssemblyPath,
+                               "RevitAPI_Course." + commandName);
+
             PushButton pb1 = ribbonPanel.AddItem(A1) as PushButton;
-            pb1.ToolTip = "Displays a Message";
-            pb1.LongDescription = "This is a long description for the command";
+            pb1.ToolTip = toolTipText;
+            //pb1.LongDescription = "This is a long description for the command";
+            
             //Uri uriImage = new Uri(@"C:\Users\Public\Pictures\Sample Pictures\Chrysanthemum.jpg");
             //BitmapImage largeImage = new BitmapImage(uriImage);
             //pushButton.LargeImage = largeImage;
-
         }
 
         public Result OnStartup(UIControlledApplication application)

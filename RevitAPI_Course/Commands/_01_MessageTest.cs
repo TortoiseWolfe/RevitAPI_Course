@@ -17,18 +17,18 @@ namespace RevitAPI_Course
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            // Analysis AN = new Analysis();
             string text = "sample";
             double number = 3.45;
             int intNumber = 4;
             string multipleTypes = "type1|type2|type3";
 
-            List<string> allNames = new List<string>();
-            
-            allNames.Add(text);
-            allNames.Add(number.ToString());
-            allNames.Add(intNumber.ToString());
-            allNames.Add(multipleTypes);
+            List<string> allNames = new List<string>
+            {
+                text,
+                number.ToString(),
+                intNumber.ToString(),
+                multipleTypes
+            };
 
             Analysis.ShowMessage(allNames);
 

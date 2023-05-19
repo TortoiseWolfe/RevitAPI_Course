@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
 	<AddIn Type="Command">
+		<Name>_01_MessageTest</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>bc40e33e-0803-4aae-87bf-7f2f5f4bc6c8</AddInId>
+		<FullClassName>RevitAPI_Course._01_MessageTest</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Your Company Information</VendorDescription>
+		<Text>Family with Data</Text>
+		<Description>01 Message Test</Description>
+	</AddIn>
+	<AddIn Type="Command">
 		<Name>_07_Family_with_Data</Name>
 		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
 		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
@@ -10,5 +21,16 @@
 		<VendorDescription>Your Company Information</VendorDescription>
 		<Text>Family with Data</Text>
 		<Description>Creates a Copy of a Family reading the Lenght</Description>
+	</AddIn>
+	<AddIn Type="Application">
+		<Name>TestBar</Name>
+		<Assembly>C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\bin\x64\Debug\RevitAPI_Course.dll</Assembly>
+		<ClientId>50B41C94-1072-4607-8D3C-6ABDBE3jhgf7</ClientId>
+		<AddInId>b99f88f4-c448-400b-aab7-8cd0690784be</AddInId>
+		<FullClassName>RevitAPI_Course.App</FullClassName>
+		<VendorId>Trinam</VendorId>
+		<VendorDescription>Trinam your Company Information</VendorDescription>
+		<Text>TestBar</Text>
+		<Description>TestBarToolBar</Description>
 	</AddIn>
 </RevitAddIns>
