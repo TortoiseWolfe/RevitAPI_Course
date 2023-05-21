@@ -72,6 +72,8 @@
   <ItemGroup>
     <Compile Include="Analysis.cs" />
     <Compile Include="Commands\App.cs" />
+    <Compile Include="Commands\_11_CurtainWallDimensioning.cs" />
+    <Compile Include="Commands\_10_CurtainWallSelection.cs" />
     <Compile Include="Commands\_06_Family_Instance_Creation.cs" />
     <Compile Include="Commands\_05_ElemetTypes_Extraction.cs" />
     <Compile Include="Commands\_02_Selection_of_Objects.cs" />

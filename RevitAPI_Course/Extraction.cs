@@ -13,6 +13,44 @@ namespace RevitAPI_Course
 {
     internal class Extraction
     {
+        public static Element SingleCurtainWallSelection(UIApplication uiapp)
+        {
+            Document doc = uiapp.ActiveUIDocument.Document;
+            Selection sel = uiapp.ActiveUIDocument.Selection;
+            Reference pickref = null;
+            Transaction trans = new Transaction(doc);
+            Element Selected = null;
+            trans.Start("Selection");
+
+            try
+            {
+                pickref = sel.PickObject(ObjectType.Element, new CurtainWallSelectionFilter(), "Select a curtain wall");
+                Selected = doc.GetElement(pickref);
+            }
+            catch
+            {
+            }
+
+            trans.Commit();
+            return Selected;
+        }
+        public class CurtainWallSelectionFilter : ISelectionFilter
+        {
+            public bool AllowElement(Element elem)
+            {
+                if (elem is Wall && (elem as Wall).CurtainGrid != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            public bool AllowReference(Reference reference, XYZ position)
+            {
+                return false;
+            }
+        }
+
         public static Element SingleElementSelection(UIApplication uiapp)
         {
         Document doc = uiapp.ActiveUIDocument.Document;
@@ -166,7 +204,6 @@ namespace RevitAPI_Course
             }
             return allElementTypes;
         }
-
         public static List<Level> GetAllLevelsFromModel(Document doc)
         {
             List<Level> allLevels = new List<Level>();

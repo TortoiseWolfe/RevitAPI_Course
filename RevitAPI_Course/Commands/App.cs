@@ -32,7 +32,7 @@ namespace RevitAPI_Course
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_05_ElementTypes_Extraction", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_06_Family_Instance_Creation", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_07_Family_with_Data", "Trinam_Design_32.png", "Trinam_Design_16.png");
-            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_08_MacroRecorder", "Trinam_Design_32.png", "Trinam_Design_16.png");
+            CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_08_MacroRecorder", "player_record.png", "player_record.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_09_ScopeBox", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_10_CurtainWallSelection", "Trinam_Design_32.png", "Trinam_Design_16.png");
             CreatePushButton(thisAssemblyPath, ribbonPanel, "Show a Message", "_11_CurtainWallDimensioning", "Trinam_Design_32.png", "Trinam_Design_16.png");
@@ -51,11 +51,11 @@ namespace RevitAPI_Course
             pb1.ToolTip = toolTipText;
             //pb1.LongDescription = "This is a long description for the command";
 
-            Uri uriImageLarge = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\" + largeImageFileName);
+            Uri uriImageLarge = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\Images\" + largeImageFileName);
             BitmapImage largeImage = new BitmapImage(uriImageLarge);
             pb1.LargeImage = largeImage;
 
-            Uri uriImageSmall = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\" + smallImageFileName);
+            Uri uriImageSmall = new Uri(@"C:\Users\JonPo\source\repos\TortoiseWolfe\RevitAPI_Course\RevitAPI_Course\Images\" + smallImageFileName);
             BitmapImage smallImage = new BitmapImage(uriImageSmall);
             pb1.Image = smallImage;
         }
